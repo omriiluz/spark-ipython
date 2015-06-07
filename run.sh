@@ -8,4 +8,4 @@ echo "IP=$IP"
 echo "preparing Spark"
 prepare_spark $IP
 
-PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS='notebook' pyspark --packages TargetHolding/pyspark-cassandra:0.1.5 --driver-memory 4g --executor-memory 4g
+PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS='notebook --ip="*"' $SPARK_HOME/bin/pyspark --packages TargetHolding/pyspark-cassandra:0.1.5 --driver-memory 4g --executor-memory 4g

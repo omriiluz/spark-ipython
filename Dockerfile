@@ -13,7 +13,12 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
 RUN /opt/conda/bin/conda update ipython ipython-notebook
 
 EXPOSE 8888
+ENV PATH /opt/conda/bin:$PATH
 
 ADD run.sh /root/
+WORKDIR c
 
-ENTRYPOINT ["/root/run.sh"]
+#Configure IPython
+RUN ipython profile create nbserver
+
+CMD ["/root/run.sh"]
