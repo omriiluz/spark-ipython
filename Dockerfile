@@ -10,7 +10,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /opt/conda/bin/conda install --yes conda==3.10.1
 
 # Install Ipython notebook
-RUN conda update ipython ipython-notebook
+RUN /opt/conda/bin/conda update ipython ipython-notebook
 
 EXPOSE 8888
 
