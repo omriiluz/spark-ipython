@@ -16,7 +16,9 @@ EXPOSE 8888
 ENV PATH /opt/conda/bin:$PATH
 
 ADD run.sh /root/
-WORKDIR c
+RUN mkdir -p /root/ipy
+VOLUME ["/root/ipy"]
+WORKDIR /root/ipy
 
 #Configure IPython
 RUN ipython profile create nbserver
